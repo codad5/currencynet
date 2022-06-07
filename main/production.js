@@ -628,6 +628,7 @@ class currencynet {
                             console.log(rateData);
                             let rate = rateData[`${currency}_${this.clientCurrency}`];
                             // let showValue = this.convert(priceValue, currency);
+                            rate = !this.floatBol ? parseInt(rate) : rate
                             if (rate == NaN || rate == null || rate == undefined) {
 
                                 element.innerHTML = symbol + priceValue;
@@ -677,7 +678,7 @@ class currencynet {
                     if (bol) {
 
 
-                        element.innerHTML = this.clientCurrencyLogo + this.convert(priceValue);
+                        element.innerHTML = this.clientCurrencyLogo + !this.floatBol ? parseInt(convert(priceValue)) : convert(priceValue);
 
 
                     } else {
