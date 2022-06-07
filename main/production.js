@@ -628,7 +628,7 @@ class currencynet {
                             console.log(rateData);
                             let rate = rateData[`${currency}_${this.clientCurrency}`];
                             // let showValue = this.convert(priceValue, currency);
-                            rate = !this.floatBol ? parseInt(rate) : rate
+                            rate = !this.floatBol ? parseInt(rate) : rate.toFixed(2)
                             if (rate == NaN || rate == null || rate == undefined) {
 
                                 element.innerHTML = symbol + priceValue;
@@ -674,15 +674,17 @@ class currencynet {
                     let fallback = Number(element.innerHTML) ?? 0;
                     priceValue = Number(element.dataset.currencynetValue) ?? fallback;
                     // console.log('hello' + this.clientCurrencyLogo);
+                    let client_price
 
                     if (bol) {
 
-
-                        element.innerHTML = this.clientCurrencyLogo + !this.floatBol ? parseInt(this.convert(priceValue)) : this.convert(priceValue).toFixed(2);
+                        client_price = !this.floatBol ? parseInt(this.convert(priceValue)) : this.convert(priceValue).toFixed(2);
+                        console.log(client_price)
+                        element.innerHTML = this.clientCurrencyLogo + client_price
 
 
                     } else {
-
+                        client_price = !this.floatBol ? parseInt(priceValue) : priceValue.toFixed(2);
                         element.innerHTML = buildCurrencyLogo + priceValue;
                     }
                 }
