@@ -678,7 +678,7 @@ class currencynet {
                     if (bol) {
 
 
-                        element.innerHTML = this.clientCurrencyLogo + !this.floatBol ? parseInt(convert(priceValue)) : convert(priceValue);
+                        element.innerHTML = this.clientCurrencyLogo + !this.floatBol ? parseInt(this.convert(priceValue)) : this.convert(priceValue).toFixed(2);
 
 
                     } else {
