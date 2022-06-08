@@ -58,7 +58,7 @@ To begin using this in your web application you have to signup  at our [website]
 ```
 ### changing the data type of your output
 
-You can change the data type of your output by adding this few code at the bottom of your html code 
+You can change the data type of your output from `float` to `int` by adding this few code at the bottom of your html code 
 
 ```html 
 </body>
@@ -77,7 +77,7 @@ You can change the data type of your output by adding this few code at the botto
 <script>
     //add event listner to make sure all element with class currencynet are loaded into the scripts on window load
     window.addEventListener('load', () => {
-    new currencynet(false).reWrite(true); 
+    new currencynet(false).reWrite(); 
     });
 
 </script>
