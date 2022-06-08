@@ -60,24 +60,27 @@ To begin using this in your web application you have to signup  at our [website]
 
 You can change the data type of your output from `float` to `int` by adding this few code at the bottom of your html code 
 
+###### To return a float data type 
 ```html 
 </body>
 <script>
     //add event listner to make sure all element with class currencynet are loaded into the script on window load
     window.addEventListener('load', () => {
-    const currencyChanger = new currencynet(false); // The false here determin if to return the value as a float or boolean  
+    const currencyChanger = new currencynet(true); // The true here tells it to return a float
     currencyChanger.reWrite(); 
     });
 </script>
 ```
 > OR 
+###### To return a int data type 
 
 ```html
 </body>
 <script>
     //add event listner to make sure all element with class currencynet are loaded into the scripts on window load
     window.addEventListener('load', () => {
-    new currencynet(false).reWrite(); 
+    let currencyChanger = new currencynet(false) //the false here tells it is to return a integer 
+    currencyChanger.reWrite(); 
     });
 
 </script>
