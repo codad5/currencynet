@@ -125,7 +125,7 @@
                     <script>
                         document.getElementById('currency-option').addEventListener('change', () => {
 
-                            const currencyChanger = new currencynet(false);
+                            const currencyChanger = new currencynet(true);
                             currencyChanger.clientCurrency = document.getElementById('currency-option').value; // this will return the value of the selected currency option  
                             currencyChanger.reWrite(true);
 
@@ -135,7 +135,7 @@
             </pre>
         </blockquote>
     </p>
-    <p> Note: The false in "<code>... new currencynet(false)</code>" Makes all float return as an Interger
+    <p> Note: The false in "<code>... new currencynet(true)</code>" Makes all float return as an Interger
 
     </p>
     <p>
