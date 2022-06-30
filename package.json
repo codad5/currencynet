@@ -1,0 +1,25 @@
+{
+  "name": "currencynet-1",
+  "version": "1.0.0",
+  "description": "> Currencynet is a javascript light framework that helps to convert currency between different html tags",
+  "main": "index.js",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PTBYSR/currencynet.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PTBYSR/currencynet/issues"
+  },
+  "homepage": "https://github.com/PTBYSR/currencynet#readme"
+}
