@@ -4,12 +4,17 @@
   "description": "> Currencynet is a javascript light framework that helps to convert currency between different html tags",
   "main": "index.js",
   "dependencies": {
+    "autoprefixer": "^10.4.7",
     "ejs": "^3.1.8",
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "postcss": "^8.4.14",
+    "postcss-cli": "^10.0.0",
+    "tailwindcss": "^3.1.4"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server" : "nodemon app.js",
+    "build:css": "postcss public/styles/tailwind.css -o public/styles/style.css"
   },
   "repository": {
     "type": "git",
