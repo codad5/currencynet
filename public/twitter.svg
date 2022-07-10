@@ -1,0 +1,11 @@
+<svg id="brand_twitter" data-name="brand / twitter" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="90" height="90" viewBox="0 0 90 90">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="brand_twitter_Background_Mask_" data-name="brand / twitter (Background/Mask)" width="90" height="90" fill="#000a2a"/>
+    </clipPath>
+  </defs>
+  <rect id="brand_twitter_Background_Mask_2" data-name="brand / twitter (Background/Mask)" width="90" height="90" fill="none"/>
+  <g id="brand_twitter-2" data-name="brand / twitter" clip-path="url(#clip-path)">
+    <path id="brand_twitter-3" data-name="brand / twitter" d="M76.279,1.144a32.216,32.216,0,0,1-10.219,3.9A16.125,16.125,0,0,0,38.625,19.729,45.69,45.69,0,0,1,5.46,2.914,16.125,16.125,0,0,0,10.44,24.4a16.035,16.035,0,0,1-7.286-2.017v.2a16.1,16.1,0,0,0,12.911,15.78,16.125,16.125,0,0,1-7.267.278A16.125,16.125,0,0,0,23.831,49.819,32.287,32.287,0,0,1,3.844,56.708,32.681,32.681,0,0,1,0,56.487a45.551,45.551,0,0,0,24.671,7.23A45.476,45.476,0,0,0,70.459,17.926q0-1.046-.049-2.081a32.7,32.7,0,0,0,8.033-8.332,32.171,32.171,0,0,1-9.24,2.535A16.125,16.125,0,0,0,76.279,1.144Z" transform="translate(5.779 15.033)" fill="#000a2a"/>
+  </g>
+</svg>

@@ -15,6 +15,10 @@ app.get('/docs', (req, res) => {
     res.render('pages/docs')
 })
 
+app.get('/about', (req, res) => {
+    res.render('pages/about')
+})
+
 app.listen(port, () => {
   console.log(`App listening at port ${port}`)
 })

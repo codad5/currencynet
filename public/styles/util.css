@@ -1,0 +1,575 @@
+:root {
+  /* COLORS */
+  --dark-blue: #000A2A;
+  --black: #111111;
+  --light-blue: #0090FF;
+  --white: #FFFFFF;
+  /* FONT FAMILY */
+  --ff-inter: "Inter";
+  --ff-roboto: "Roboto";
+  /* FONT SIZE */
+  --xl: 5.5vw;
+  --l: 3.5vw;
+  --xm: 2.5vw;
+  --m: 1.5vw;
+  --s: 1.3vw;
+  /* --s: 1.6vw; */
+  --xs: 1vw;
+}
+
+/* RESET CSS */
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reset margins */
+
+body,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+  margin: 0;
+}
+
+ul{
+  padding: 0;
+}
+
+h1,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: 400; /* remove default */
+}
+h2 {
+  font-weight: 800;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* set up the body */
+body {
+  line-height: 1.5;
+}
+
+/* make images easier to use */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* make forms easier */
+/* by default these form elements do not inherit font family by default */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* utility classes */
+.bg-dark{
+  background-color: var(--dark-blue);
+}
+.bg-white{
+  background-color: var(--white)!important;
+}
+.ff-inter {
+  font-family: var(--ff-inter);
+}
+.ff-roboto {
+  font-family: var(--ff-roboto);
+}
+
+.fs-xl {
+  font-size: var(--xl);
+}
+.fs-l {
+  font-size: var(--l);
+}
+.fs-xm {
+  font-size: var(--xm);
+}
+.fs-m {
+  font-size: var(--m);
+}
+.fs-s {
+  font-size: var(--s);
+}
+.fs-xs {
+  font-size: var(--xs);
+}
+
+.fw-300 {
+  font-weight: 300;
+}
+.fw-400 {
+  font-weight: 400;
+}
+.fw-500 {
+  font-weight: 600; /*note that 500 *= 600*/
+}
+.fw-600 {
+  font-weight: 500;
+}
+.fw-700 {
+  font-weight: 700;
+}
+.fw-800 {
+  font-weight: 800;
+}
+
+.text-black {
+  color: var(--black)!important;
+}
+.text-white {
+  color: var(--white);
+}
+
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+
+/* undefined custom properties
+  makes them overidable
+  when declaring
+  them using inline css */
+.flow > *:where(:not(:last-child)) {
+  margin-top: var(--flow-space, 1rem);
+  outline: 1px solid red;
+}
+.border {
+  border: 1px solid black;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.container {
+  /* same as padding: 0 2em */
+  /* padding-inline: 2em;  */
+  margin-inline: auto;
+  padding: 3rem;
+  max-width: 80rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* add line */
+  border: 0;
+}
+
+.small-btn {
+  font-size: var(--xs);
+  background-color: var(--light-blue);
+  padding: 1em 2.4em;
+  color: var(--white);
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  /* width: 19vw; */
+  transition: 0.2s;
+  text-transform: uppercase;
+  margin-top: 4vw;
+}
+/* .small-btn:hover {
+  transform: scale(1.1);
+  transition: 0.2s;
+} */
+.help-btn {
+  font-size: var(--s);
+  background-color: var(--main-green);
+  padding: 1em 1.5em;
+  color: var(--white);
+  font-family: var(--ff-rale);
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  width: 19vw;
+  transition: 0.2s;
+}
+.help-btn:hover {
+  transform: scale(1.1);
+  transition: 0.2s;
+}
+.large-btn {
+  border: none;
+  font-size: var(--m);
+  background-color: var(--main-green);
+  padding: 1em 1.5em;
+  color: var(--white);
+  font-family: var(--ff-rale);
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 26vw;
+  transition: 0.2s;
+}
+.large-btn:hover {
+  transform: scale(1.07);
+  transition: 0.2s;
+}
+.how-it-works-card {
+  border: none;
+  font-size: var(--s);
+  background-color: var(--gray);
+  padding: 1vw 1.5vw;
+  color: var(--white);
+  font-family: var(--ff-rale);
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 26vw;
+  height: 5vw;
+  text-align: center;
+  transition: 0.5s;
+}
+.all-in-one-card {
+  margin: 1vw;
+  width: 20vw;
+  height: 20vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Raleway";
+  font-weight: 600;
+  font-size: var(--s);
+  line-height: 2vw;
+  padding: 2.5vw;
+  background-color: var(--pink);
+  color: var(--white);
+  border-radius: 4px;
+  text-align: center;
+  flex-direction: column;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.all-in-one-card:hover {
+  transform: scale(1.07);
+  transition: 0.2s;
+}
+
+.resize {
+  width: var(--img-resize);
+}
+.underline {
+  text-decoration: underline;
+}
+.center-all {
+  justify-content: center;
+  align-items: center;
+}
+/* a {
+  color: var(--white);
+  text-decoration: underline;
+  transition: 0.2s;
+}
+a:hover {
+  transform: scale(1.1);
+  transition: 0.2s;
+} */
+.row-reverse {
+  flex-direction: row-reverse;
+}
+
+/* Media queries */
+@media (max-width: 700px) {
+  :root {
+    /* COLORS */
+    --main-green: #0e8073;
+    --black: #343434;
+    --text-gray: #7d7d7d;
+    --gray: #e4e4e4;
+    --white: #ffffff;
+    --pink: #fa809a;
+    --cyan: rgb(224, 242, 241);
+
+    --blue-rect: rgb(35, 70, 79);
+    --text-inactive: rgb(52, 52, 52, 0.3);
+    /* FONT */
+    --ff-roboto: "Roboto", sans-serif;
+    --ff-noto: "Poppins", sans-serif;
+    --ff-rale: "Raleway", sans-serif;
+    /* COMPONENTS */
+    --blue-rect: rgb(35, 70, 79);
+    --pink-rect: rgb(250, 128, 154, 0.4);
+    --red-rect: rgb(235, 83, 77);
+    --cyan-rect: rgb(224, 242, 241, 0.4);
+    /* FONT SIZE */
+    --xl: 9vw;
+    --l: 9vw;
+    --xm: 5vw;
+    --m: 5vw;
+    --s: 5vw;
+    /* --s: 1.6vw; */
+    --xs: 4vw;
+  }
+
+  /* RESET CSS */
+
+  /* Box sizing */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* Reset margins */
+
+  body,
+  ul,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p,
+  figure,
+  picture {
+    margin: 0;
+  }
+
+  h1,
+  h1,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    font-weight: 400; /* remove default */
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  /* set up the body */
+  body {
+    line-height: 1.5;
+  }
+
+  /* make images easier to use */
+  img,
+  picture {
+    max-width: 100%;
+    display: block;
+  }
+
+  /* make forms easier */
+  /* by default these form elements do not inherit font family by default */
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  /* remove animations for people who've turned them off */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* utility classes */
+  .ff-rale {
+    font-family: var(--ff-rale);
+  }
+  .ff-noto {
+    font-family: var(--ff-noto);
+  }
+  .ff-roboto {
+    font-family: var(--ff-robto);
+  }
+
+  .fs-xl {
+    font-size: var(--xl);
+  }
+  .fs-l {
+    font-size: var(--l);
+  }
+  .fs-xm {
+    font-size: var(--xm);
+  }
+  .fs-m {
+    font-size: var(--m);
+  }
+  .fs-s {
+    font-size: var(--s);
+  }
+  .fs-xs {
+    font-size: var(--xs);
+  }
+
+  .fw-300 {
+    font-weight: 300;
+  }
+  .fw-400 {
+    font-weight: 400;
+  }
+  .fw-500 {
+    font-weight: 500;
+  }
+  .fw-600 {
+    font-weight: 500;
+  }
+  .fw-700 {
+    font-weight: 700;
+  }
+  .fw-800 {
+    font-weight: 800;
+  }
+
+  .text-black {
+    color: var(--black);
+  }
+  .text-white {
+    color: var(--white);
+  }
+  .text-gray {
+    color: var(--text-gray);
+  }
+
+  .flex {
+    display: flex;
+    gap: var(--gap, 1rem);
+  }
+
+  .grid {
+    display: grid;
+    gap: var(--gap, 1rem);
+  }
+
+  /* undefined custom properties
+    makes them overidable
+    when declaring
+    them using inline css */
+  .flow > *:where(:not(:last-child)) {
+    margin-top: var(--flow-space, 1rem);
+    outline: 1px solid red;
+  }
+
+  .container {
+    padding: 1.3rem;
+  }
+  .border {
+    border: 1px solid black;
+  }
+  section {
+    margin-top: 20vw;
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap; /* add line */
+    border: 0;
+  }
+
+  .small-btn {
+    width: 100%;
+  }
+  .help-btn {
+    width: 100%;
+  }
+  .large-btn {
+    width: 100%;
+  }
+  .large-btn:hover {
+    transform: scale(1.07);
+    transition: 0.2s;
+  }
+  .how-it-works-card {
+    padding: 1em 1.5em;
+    height: 20vw;
+    width: 100%;
+  }
+  .all-in-one-card {
+    height: 30vh;
+    width: 100%;
+    line-height: 8vw;
+    padding: 1em 1.5em;
+    margin-top: 10vw;
+  }
+  .all-in-one-card:hover {
+    transform: scale(1.07);
+    transition: 0.2s;
+  }
+
+  .resize {
+    width: var(--img-resize);
+  }
+  .underline {
+    text-decoration: underline;
+  }
+  .center-all {
+    justify-content: center;
+    align-items: center;
+  }
+  a {
+    color: var(--white);
+    text-decoration: underline;
+    transition: 0.2s;
+  }
+  a:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+  }
+  .row-reverse {
+    flex-direction: row-reverse;
+  }
+}

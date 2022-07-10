@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="117" height="173" viewBox="0 0 117 173">
+  <g id="Group_33" data-name="Group 33" transform="translate(-341 -560)">
+    <text id="C" transform="translate(353 697)" fill="#fff" font-size="142" font-family="Montserrat" font-weight="700"><tspan x="0" y="0">C</tspan></text>
+    <g id="Rectangle_12" data-name="Rectangle 12" transform="translate(341 628)" fill="#fff" stroke="#fff" stroke-width="1">
+      <rect width="60" height="13" stroke="none"/>
+      <rect x="0.5" y="0.5" width="59" height="12" fill="none"/>
+    </g>
+    <g id="Rectangle_13" data-name="Rectangle 13" transform="translate(341 654)" fill="#fff" stroke="#fff" stroke-width="1">
+      <rect width="60" height="13" stroke="none"/>
+      <rect x="0.5" y="0.5" width="59" height="12" fill="none"/>
+    </g>
+    <g id="Rectangle_14" data-name="Rectangle 14" transform="translate(341 716)" fill="#0090ff" stroke="#0090ff" stroke-width="1">
+      <rect width="116" height="13" stroke="none"/>
+      <rect x="0.5" y="0.5" width="115" height="12" fill="none"/>
+    </g>
+  </g>
+</svg>

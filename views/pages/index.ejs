@@ -1,13 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/style.css">
-    <title>Document</title>
-</head>
-<body class="bg-gray-900">
-    <h1 class="text-xl">Working</h1>
-</body>
-</html>
+<%- include('../partials/header.ejs'); -%>
+
+    <!-- <div class="stars"><img src="/stars.svg" alt="" srcset=""></div> -->
+    <body class="bg-dark">
+        <%- include('../partials/nav.ejs'); -%>
+        <section class="landing container flex center-all">
+            <div class="landing-wrapper flex center-all flex-col">
+                <div class="landing-text text-white">
+                    <h1 class="landing-header fs-xl ff-mont fw-500 ff-inter">A currency converter API </br>for interstellar apps</h1>
+                    <p class="landing-sub-head fs-s ff-roboto">With just few lines of code, integrate currency conversion into your apps efficiently</p>
+                </div>
+                <button class="small-btn ff-roboto">Get started</button>
+            </div>
+        </section>
+        <%- include('../partials/banner.ejs'); -%>
+        <section class="get-started container text-white">
+            <div class="get-started-wrapper">
+                <h1>Get Started now</h1>
+            </div>
+        </section>
+        <div class="text-white">
+            <%- include('../partials/footerBanner.ejs'); -%>
+            <%- include('../partials/footer.ejs'); -%>
+        </div>
+    </body>
+
