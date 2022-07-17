@@ -12,6 +12,7 @@ nav{
 
 .logo img{
     width: 10vw;
+    cursor: pointer;
 }
 .nav-ul{
     height: 100%;
@@ -21,9 +22,13 @@ nav{
 .nav-ul li{
     margin-left: 2vw;
 }
-.nav-ul a{
+.nav-light li a {
+    color: var(--black)
+}
+.nav-dark li a {
     color: var(--white)
 }
+
 
 
 
