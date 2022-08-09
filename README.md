@@ -16,7 +16,16 @@ To begin using this in your web application you have to signup  at our [website]
 ```
 
 ### Initialize Currencynet
-
+ Create a new currencyNet Object
+```html
+    <script>
+        window.addEventListener("load", async () => {
+        const currencyChange = new currrencyNet('NGN', false);
+        await currencyChange.reWrite();
+        });
+    </script>
+```
+Now add your the `currencynet-init` className to the desired element
 ```html
 <span class="currencynet-init"></span>
 ```
@@ -47,12 +56,8 @@ To begin using this in your web application you have to signup  at our [website]
 </select>
 <script>
     //add event listner for the select tag 
-    document.getElementById('currency-option').addEventListener('change', () => {
-
-    const currencyChanger = new currencynet(false); // The false here determin if to return the value as a float or boolean 
-        currencyChanger.clientCurrency = document.getElementById('currency-option').value; // this will return the value of the selected currency option  
-        currencyChanger.reWrite(true); 
-
+    document.getElementById('currency-option').addEventListener('change', async (e) => {
+        await currencyChange.reWrite(e.target.value);
     });
 </script>
 ```

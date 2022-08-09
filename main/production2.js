@@ -426,77 +426,364 @@
     "ZM": { "name": "Zambia", "currency": "ZMW" },
     "ZW": { "name": "Zimbabwe", "currency": "USD" }
 };
-const countryCodes = ["AFA", "ALL", "DZD", "AOA", "ARS", "AMD", "AWG", "AUD", "AZN", "BSD", "BHD", "BDT", "BBD", "BYR", "BEF", "BZD", "BMD", "BTN", "BTC", "BOB", "BAM", "BWP", "BRL", "GBP", "BND", "BGN", "BIF", "KHR", "CAD", "CVE", "KYD", "XOF", "XAF", "XPF", "CLP", "CNY", "COP", "KMF", "CDF", "CRC", "HRK", "CUC", "CZK", "DKK", "DJF", "DOP", "XCD", "EGP", "ERN", "EEK", "ETB", "EUR", "FKP", "FJD", "GMD", "GEL", "DEM", "GHS", "GIP", "GRD", "GTQ", "GNF", "GYD", "HTG", "HNL", "HKD", "HUF", "ISK", "INR", "IDR", "IRR", "IQD", "ILS", "ITL", "JMD", "JPY", "JOD", "KZT", "KES", "KWD", "KGS", "LAK", "LVL", "LBP", "LSL", "LRD", "LYD", "LTL", "MOP", "MKD", "MGA", "MWK", "MYR", "MVR", "MRO", "MUR", "MXN", "MDL", "MNT", "MAD", "MZM", "MMK", "NAD", "NPR", "ANG", "TWD", "NZD", "NIO", "NGN", "KPW", "NOK", "OMR", "PKR", "PAB", "PGK", "PYG", "PEN", "PHP", "PLN", "QAR", "RON", "RUB", "RWF", "SVC", "WST", "SAR", "RSD", "SCR", "SLL", "SGD", "SKK", "SBD", "SOS", "ZAR", "KRW", "XDR", "LKR", "SHP", "SDG", "SRD", "SZL", "SEK", "CHF", "SYP", "STD", "TJS", "TZS", "THB", "TOP", "TTD", "TND", "TRY", "TMT", "UGX", "UAH", "AED", "UYU", "USD", "UZS", "VUV", "VEF", "VND", "YER", "ZMK"];
 
+class currencynet {
+        /**
+         * @param floatBol
+         * When set to true it makes all the currency value a `float data type`
+         * the float data type is in 2 decimal places
+         */
+    constructor(build_currency = "USD", floatBol = true) {
+        
+        this.floatBol = floatBol;
+    
+        this.mainClass = document.querySelectorAll('.currencynet-init');
+        this.buildCurrency = build_currency.toUpperCase();
+        this.clientCurrency = "USD".toUpperCase();
+        this.countryCode = ["AFA", "ALL", "DZD", "AOA", "ARS", "AMD", "AWG", "AUD", "AZN", "BSD", "BHD", "BDT", "BBD", "BYR", "BEF", "BZD", "BMD", "BTN", "BTC", "BOB", "BAM", "BWP", "BRL", "GBP", "BND", "BGN", "BIF", "KHR", "CAD", "CVE", "KYD", "XOF", "XAF", "XPF", "CLP", "CNY", "COP", "KMF", "CDF", "CRC", "HRK", "CUC", "CZK", "DKK", "DJF", "DOP", "XCD", "EGP", "ERN", "EEK", "ETB", "EUR", "FKP", "FJD", "GMD", "GEL", "DEM", "GHS", "GIP", "GRD", "GTQ", "GNF", "GYD", "HTG", "HNL", "HKD", "HUF", "ISK", "INR", "IDR", "IRR", "IQD", "ILS", "ITL", "JMD", "JPY", "JOD", "KZT", "KES", "KWD", "KGS", "LAK", "LVL", "LBP", "LSL", "LRD", "LYD", "LTL", "MOP", "MKD", "MGA", "MWK", "MYR", "MVR", "MRO", "MUR", "MXN", "MDL", "MNT", "MAD", "MZM", "MMK", "NAD", "NPR", "ANG", "TWD", "NZD", "NIO", "NGN", "KPW", "NOK", "OMR", "PKR", "PAB", "PGK", "PYG", "PEN", "PHP", "PLN", "QAR", "RON", "RUB", "RWF", "SVC", "WST", "SAR", "RSD", "SCR", "SLL", "SGD", "SKK", "SBD", "SOS", "ZAR", "KRW", "XDR", "LKR", "SHP", "SDG", "SRD", "SZL", "SEK", "CHF", "SYP", "STD", "TJS", "TZS", "THB", "TOP", "TTD", "TND", "TRY", "TMT", "UGX", "UAH", "AED", "UYU", "USD", "UZS", "VUV", "VEF", "VND", "YER", "ZMK"];
+        this.clientCurrencyLogo = currencySet[this.clientCurrency].symbol;
+        this.url = `https://currencynet.sanctablog.com/`;
+        // this.endpoint = this.url + `api/?url=` + window.location.origin+"/currencynet/";
 
-class currrencyNet{
-    default_rate = 1;
-    constructor(build_currency, float_precision){
-        this.client_currency = build_currency;
-        this.build_currency = build_currency;
-        this.float_precision = float_precision;
-        this.default_classname = "currencynet-init";
-        this.default_element = document.querySelectorAll(`.${this.default_classname}`);
-        
-    }
-    async getRate(){
-        // fetch data from https://localhost then return the data
-        const response = await fetch(`https://lovely-puce-shoulder-pads.cyclic.app/${this.build_currency}/${this.client_currency}`);
-        const data = await response.json();
-        this.rate = data.conversion_rate;
-        return data.conversion_rate;
-    }
-    async fetchUserLoaction(){
-        if(!navigator.geolocation){
-            return false;
-        }
-        const response = await fetch(`https://ipapi.co/json/`);
-        const data = await response.json();
-        this.user_location = data;
-        this.client_currency = data.currency;
-        return data;
-        
-    }
-    async getRateFrom(from_currency){
-        // fetch data from https://localhost then return the data
-        const response = await fetch(`https://lovely-puce-shoulder-pads.cyclic.app/${from_currency}/${this.client_currency}`);
-        const data = await response.json();
-        this.rate = data.conversion_rate;
-        return data.conversion_rate;
-    }
-    reWriteElement(element, rate){
-        let v = element.dataset.currencynetValue || element.innerHTML;
-        v = this.float_precision ? parseFloat(v) : parseInt(v);
-        console.log(v, this.client_currency, this.build_currency, currencySet[this.client_currency].symbol);
-        const client_currency_logo = currencySet[this.client_currency].symbol;
-        if(v && v !== "NaN"){
-            element.innerHTML = `${client_currency_logo} ${v * rate}`;
-        }
-        else{
-            console.log(`${v} is not a number in Element with classname ${element.className}`);
-            element.innerHTML = `${client_currency_logo} ${v}`;
-        }
-        
-    }
-    async reWrite(desired_currency = false){
-        const client_info = await this.fetchUserLoaction();
-        if (desired_currency){
-            this.client_currency = desired_currency;
-        }
-        this.default_rate = await this.getRate();
-        this.default_element.forEach(element => {
-            this.reWriteElement(element, this.default_rate);
-        });
-        countryCodes.forEach(code => {
-            const element = document.querySelectorAll(`.currencynet-init-${code.toLowerCase()}`);
-            if(element){
-                element.forEach(el => {
-                    this.getRateFrom(code).then(rate => {
-                        this.reWriteElement(el, rate);
+        this.defaultRate = 1;
+        /**
+         * this is to store the data of the particular website
+         * The json object carrys both the build currrency of the website 
+         * @return json
+         */
+        this.data = fetch(this.endpoint)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (jsonData) {
+                // console.log(jsonData);
+                // console.log(jsonData.data);
+                return jsonData;
+            });
+            /**
+             * This method is called to fetvh the user Location object
+             * if successful the promise contains both logitude and latitude coords
+             * @return Promise
+             * 
+             */
+        this.awaitLocation = () => {
+            navigator.geolocation.getCurrentPosition((position) => {
+                // var position = 3;
+                latitude = position.coords.latitude;
+                longitude = position.coords.longitude;
+                console.log(position);
+                return new Promise(resolve => { resolve(position.coords); });
+                // console.log(position.coords);
+            });
+        };
+        /**
+         * This method is called to fetvh the user Location object
+         * if successful the promise contains both logitude and latitude coords
+         * @return Promise
+         * 
+         */
+        this.getCurrentPosition = () => {
+            let locationTimeout = () => setTimeout(() => {
+                console.log("Location TimeOUt");
+                return new Promise(resolve => { resolve(null); });
+            }, 3000);
+            return new Promise((resolve, reject) => {
+                navigator.geolocation.getCurrentPosition(
+                    // locationTimeout(),
+                    position => resolve(position),
+                    // clearTimeout(locationTimeout),
+                    error => reject(error)
+                );
+            });
+        };
+        /**
+             * Thism convert the build currency to client currency
+             * 
+             * @param {Integer} amount
+             * This is the amount in the buid currency to be converted to client currency
+             * 
+             * @param {string} buildCurrency
+             * This is a short hand form of the application currency its length is 3 max
+             * 
+             * 
+             * 
+             * @return {Integer} amount
+             * This property returns the amount in the client currency
+             * 
+             */
+        this.convert = async (buildCurrency = this.buildCurrency, amount = 0) => {
+
+            let clientCurrency = this.clientCurrency;
+            let rate = this.defaultRate;
+            if (buildCurrency !== this.buildCurrency) {
+                // let rateKey = `https://free.currconv.com/api/v7/convert?q=${buildCurrency}_${this.clientCurrency}&compact=ultra&apiKey=33e6a9fae58c3301bf76`;
+                let rateKey = `https://lovely-puce-shoulder-pads.cyclic.app/${buildCurrency}/${this.clientCurrency}`;
+                // console.log(rateKey);
+                let rateData = await fetch(rateKey)
+                    .then(function (response) {
+                        return response.json();
+                    })
+                    .then(function (jsonData) {
+                        // console.log(jsonData);
+                        return jsonData;
+                    }).catch((e) => {
+                        throw new Error(e)
+                        // return e;
                     });
-                });
+                rate = rateData.conversion_rate;
             }
-        });
-    }
+            if (!this.floatBol) {
 
+
+                return parseInt(amount * this.defaultRate);
+            }
+            else {
+                return amount * rate;
+            }
+
+
+        };
+        /**
+         * This method fetch the client location information
+         * @param {JSON} coords 
+         * This is the json representation of the client browser coordinates
+         * @return {JSON} client
+         * This JSON contains informaton about the client location
+         */
+        this.fetchCountry = (coords) => {
+            let lat = coords.latitude;
+            let long = coords.longitude;
+            fetch("https://api.opencagedata.com/geocode/v1/json?q=" + lat + "+" + long + "&key=7db17f144fc245e791ef803d44afa6ee&pretty=1")
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (jsonData) {
+                    // console.log(jsonData);
+                    // console.log(jsonData.data);
+                    // console.log(jsonData);
+                    return jsonData;
+                })
+                .catch(e => {
+                    throw new Error('error in fetching country details'+e)
+                });
+        };
+        /**
+         * 
+         * @param {HTML DOM ELEMENT} elem 
+         * This is an array of the target elements in which it want to get its classes from
+         * @param {STRING} defaultclass 
+         * 
+         * @returns {String} list
+         * This return a string which contains all the classes of the targeted element in the String    
+         */
+        this.getClassList = (elem, defaultclass = "usd") => {
+            let list = "";
+            const pattern = 'currencynet-init';
+            let num = 0, subDeafult = pattern + '-' + defaultclass.toLowerCase();
+
+            Array.prototype.forEach.call(elem.classList, element => {
+                if (element !== pattern && element !== subDeafult) {
+                    num++;
+                    console.log(subDeafult);
+                    // console.log(element);
+                    list += "\n " + num + "->" + element + "\n";
+                }
+            });
+            // console.log(defaultclass);
+            return list;
+        };
+
+        /**
+         * 
+         * This modify all the element with currencNet classes aside the main `general class` (`currencynet-init`)
+         * @param {String} countryCode 
+         * This the shorthand for the client country code
+         * @param {bool} bol 
+         * When set `true` it set the currency to that of the client country
+         * else set the currency to that of the application build currency
+         * 
+         @return {void}
+         */
+        this.editCurrencyTag = (countryCode = this.countryCode, bol = true) => {
+            this.clientCurrencyLogo = currencySet[this.clientCurrency].symbol;
+
+            Array.prototype.forEach.call(countryCode, element => {
+                let currency = element;
+                let symbol = currencySet[currency].symbol;
+                Array.prototype.forEach.call(document.querySelectorAll('.currencynet-init-' + element.toLowerCase()), async (element) => {
+                    let priceValue = 0;
+                    if ((Number(element.dataset.currencynetValue) > 0 && Number(element.dataset['currencynet-value']) != NaN) || (Number(element.innerHTML) > 0 && Number(element.innerHTML) != NaN)) {
+
+                        let fallback = Number(element.innerHTML) ?? 0;
+                        priceValue = Number(element.dataset.currencynetValue) ?? fallback;
+                        // console.log(priceValue);
+                        if (bol) {
+                            let rateData = await this.getDefaultRate(currency);
+                            console.log(rateData);
+                            let rate = rateData[`${currency}_${this.clientCurrency}`];
+                            // let showValue = this.convert(priceValue, currency);
+                            rate = !this.floatBol ? parseInt(rate) : rate.toFixed(2)
+                            if (rate == NaN || rate == null || rate == undefined) {
+
+                                element.innerHTML = symbol + priceValue;
+                            } else {
+
+                                element.innerHTML = this.clientCurrencyLogo + (rate * priceValue);
+                            }
+                        } else {
+                            element.innerHTML = symbol + priceValue;
+
+
+                        }
+                    } else {
+                        console.warn(`Element with class List \n ${this.getClassList(element, currency)} \n Element error : Expected an integer was given a string ( "${element.dataset.currencynetValue}" )`);
+
+                    }
+
+                });
+            });
+        };
+        /**
+         * This modify all the element with class `currency-net-init`, it edit all their innerHtml to that of the curresponding currency conversion output
+         * 
+         * 
+         * @param {NodeListOf<Element>} mainClass  
+         * This is an array list if all the elemnt with the className `currencynet-init`
+         * 
+         *  
+         * @param {*} bol
+         * When set `true` it set the currency to that of the client country
+         * else set the currency to that of the application build currency
+         *  
+         */
+        this.editNormTag = (mainClass = this.mainClass, bol = true) => {
+            this.clientCurrencyLogo = currencySet[this.clientCurrency].symbol;
+
+            let buildCurrencyLogo = currencySet[this.buildCurrency].symbol;
+
+            Array.prototype.forEach.call(mainClass, element => {
+
+                let priceValue = 0;
+                if ((Number(element.dataset.currencynetValue) > 0 && Number(element.dataset['currencynet-value']) != NaN) || (Number(element.innerHTML) > 0 && Number(element.innerHTML) != NaN)) {
+                    let fallback = Number(element.innerHTML) ?? 0;
+                    priceValue = Number(element.dataset.currencynetValue) ?? fallback;
+                    // console.log('hello' + this.clientCurrencyLogo);
+                    let client_price
+
+                    if (bol) {
+
+                        client_price = !this.floatBol ? parseInt(this.convert(priceValue)) : this.convert(priceValue).toFixed(2);
+                        console.log(client_price)
+                        element.innerHTML = this.clientCurrencyLogo + client_price
+
+
+                    } else {
+                        client_price = !this.floatBol ? parseInt(priceValue) : priceValue.toFixed(2);
+                        element.innerHTML = buildCurrencyLogo + priceValue;
+                    }
+                }
+                else {
+                    console.warn(`Element with class List \n ${this.getClassList(element)} \n , and Id = ${element.id} Element error : Expected an integer was given a string ( "${element.dataset.currencynetValue}" )`);
+                }
+                // console.log(position);
+            });
+            // return 20+"me";
+        };
+        /**
+         * This return a json data of the clients currency  details 
+         * 
+         * @param {String} newpoint 
+         * This is the api connectiion url to get the details about the client currency
+         * 
+         * @returns {JSON} json 
+         * This json contains the details of the currency conversion
+         */
+        this.getCurrencyDetails = (newpoint) => {
+            return fetch(newpoint)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (jsonData) {
+                    return jsonData;
+                }).catch((e) => {
+                    // return e;
+                    throw new Error(e)
+                });
+        };
+        this.getDefaultRate = async (buildCurrency = this.buildCurrency) => {
+            let rateKey = `https://lovely-puce-shoulder-pads.cyclic.app/${buildCurrency}/${this.clientCurrency}`;
+            // let rateKey = `https://free.currconv.com/api/v7/convert?q=${buildCurrency}_${this.clientCurrency}&compact=ultra&apiKey=a6d05172b2432094770f`;
+
+
+            return fetch(rateKey)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (jsonData) {
+                    return jsonData;
+                }).catch((e) => {
+                    throw new Error(e)
+                });
+        };
+        this.reWrite = async (manualEdit = false) => {
+            
+            let countryCode = this.countryCode;
+            let mainClass = this.mainClass;
+            this.clientCurrencyLogo = currencySet[this.clientCurrency].symbol;
+            this.editNormTag(mainClass, false);
+            this.editCurrencyTag(countryCode, false);
+            if (navigator.geolocation) {
+                        try {
+                            if (manualEdit == false) {
+                            const position = await this.getCurrentPosition();
+                            // console.log(position);
+                            let lat = position.coords.latitude;
+                            let lon = position.coords.longitude;
+                            let newpoint = "https://api.opencagedata.com/geocode/v1/json?q=" + lat + "+" + lon + "&key=7db17f144fc245e791ef803d44afa6ee&pretty=1";
+                            console.log("checking::" + this.editNormTag(mainClass));
+                            let currencyDetails, rateData;
+                            currencyDetails = await this.getCurrencyDetails(newpoint);
+                            const userLocation = currencyDetails;
+                            console.log("your location data", userLocation);
+                            console.log("bite " + userLocation.results[0].components['ISO_3166-1_alpha-2']);
+                            let ISO_3166 = userLocation.results[0].components['ISO_3166-1_alpha-2'];
+                            this.clientCurrency = countryset[ISO_3166].currency;
+                            this.clientCurrencyLogo = currencySet[this.clientCurrency].symbol;
+                        }
+                            
+
+                        let rateData = await this.getDefaultRate();
+                        if(rateData.status == false){
+                            return;
+                        }
+                        this.defaultRate = rateData?.conversion_rate;
+                        if (this.defaultRate == NaN || this.defaultRate == undefined) {
+                            return;
+                        }
+                        
+                        this.editNormTag(mainClass);
+                        this.editCurrencyTag(countryCode); 
+                        } catch (err) {
+
+                            console.log(err, err.message || "error fetching Client Location");
+                            this.editNormTag(mainClass, false);
+                            this.editCurrencyTag(countryCode, false)
+                        }
+                    }
+                } 
+            
+
+        };
+
+    }
+    
 }
+
+window.addEventListener("load", async () => {
+    const currencyChange = new currencynet(false);
+    await currencyChange.reWrite();
+    
+
+});
+
+
