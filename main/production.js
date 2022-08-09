@@ -436,6 +436,8 @@ class currrencyNet{
         this.float_precision = float_precision;
         this.default_classname = "currencynet-init";
         this.default_element = document.querySelectorAll(`.${this.default_classname}`);
+        this.selectCurrency();
+
         
     }
     async getRate(){
@@ -473,8 +475,31 @@ class currrencyNet{
         }
         else{
             console.log(`${v} is not a number in Element with classname ${element.className}`);
-            element.innerHTML = `${client_currency_logo} ${v}`;
+            element.innerHTML = `${client_currency_logo} 0`;
         }
+        
+    }
+    selectCurrency(){
+        // change client currency depending on select input
+        const select = document.querySelector(".currencynet-select");
+        // add eventListener to select input
+        select.addEventListener("change", async () => {
+            this.client_currency = select.value;
+            this.default_rate = await this.getRate();
+            this.default_element.forEach(element => {
+                this.reWriteElement(element, this.default_rate);
+            } );
+            //loop through all country codes and rewrite the elements
+            countryCodes.forEach(async (code) => {
+                const rate = await this.getRateFrom(code);
+                const elements = document.querySelectorAll(`.currencynet-init-${code}`);
+                elements.forEach(element => {
+                    this.reWriteElement(element, rate);
+                } );
+            });
+
+        });
+        
         
     }
     async reWrite(desired_currency = false){
@@ -499,3 +524,4 @@ class currrencyNet{
     }
 
 }
+

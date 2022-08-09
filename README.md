@@ -20,11 +20,14 @@ To begin using this in your web application you have to signup  at our [website]
 ```html
     <script>
         window.addEventListener("load", async () => {
+        // `NGN` this is our application build currency
         const currencyChange = new currrencyNet('NGN', false);
         await currencyChange.reWrite();
         });
     </script>
 ```
+`NGN` - This can be replaced by any of [ISO 4217 CODE](https://en.wikipedia.org/wiki/ISO_4217) based on the currency used in building your application
+
 Now add your the `currencynet-init` className to the desired element
 ```html
 <span class="currencynet-init"></span>
@@ -48,19 +51,14 @@ Now add your the `currencynet-init` className to the desired element
 ### Adding a dropdown option
 
 ```html
-<select id="currency-option" onchange="changeCurrency">
+<select class="currencynet-select">
     <option name="USD" id="">USD</option>
     <option name="NGN" id="">NGN</option>
     <option name="EUR" id="">EUR</option>
     <option name="INR" id="">INR</option>
 </select>
-<script>
-    //add event listner for the select tag 
-    document.getElementById('currency-option').addEventListener('change', async (e) => {
-        await currencyChange.reWrite(e.target.value);
-    });
-</script>
 ```
+> NOTE: use the className `currencynet-select` for the drop down menu
 ### changing the data type of your output
 
 You can change the data type of your output from `float` to `int` by adding this few code at the bottom of your html code 
@@ -69,30 +67,20 @@ You can change the data type of your output from `float` to `int` by adding this
 ```html 
 </body>
 <script>
-    //add event listner to make sure all element with class currencynet are loaded into the script on window load
-    window.addEventListener('load', () => {
-    const currencyChanger = new currencynet('USD', true); // The true here tells it to return a float
-    currencyChanger.reWrite(); 
-    });
+    // this will make the output a float of 2 decimal plcae `2.00` on true else a Integer `2` 
+    currencyChange.float(true); 
+    
 </script>
 ```
-> OR 
-###### To return a int data type 
 
-```html
-</body>
-<script>
-    //add event listner to make sure all element with class currencynet are loaded into the scripts on window load
-    window.addEventListener('load', () => {
-    let currencyChanger = new currencynet(false) //the false here tells it is to return a integer 
-    currencyChanger.reWrite(); 
-    });
+- `float` method : this will make the output a float of 2 decimal plcae `2.00` on true else a Integer `2`
 
-</script>
-```
+
+
+
 ### Table for all avaliable currency class 
 
-| COUNTRY | ISO 3 CODE | CLASSNAME |
+| COUNTRY | ISO 4217 CODE | CLASSNAME |
 | :---: | :---:| :---|
 |Your Build Country | NULL | currencynet-init |
 | US Dollar | USD | currencynet-init-usd |
