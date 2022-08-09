@@ -71,7 +71,7 @@ You can change the data type of your output from `float` to `int` by adding this
 <script>
     //add event listner to make sure all element with class currencynet are loaded into the script on window load
     window.addEventListener('load', () => {
-    const currencyChanger = new currencynet(true); // The true here tells it to return a float
+    const currencyChanger = new currencynet('USD', true); // The true here tells it to return a float
     currencyChanger.reWrite(); 
     });
 </script>

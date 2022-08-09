@@ -1,4 +1,3 @@
-// import { currencySet, countryset } from './production-assets'
  const currencySet = {
     "AFA": { "name": "Afghan Afghani", "symbol": "؋" },
     "ALL": { "name": "Albanian Lek", "symbol": "Lek" },
@@ -466,7 +465,7 @@ class currrencyNet{
     }
     reWriteElement(element, rate){
         let v = element.dataset.currencynetValue || element.innerHTML;
-        v = this.float_precision ? parseFloat(v) : parseInt(v);
+        v = this.float_precision ? parseFloat(v).toFixed(2) : parseInt(v);
         console.log(v, this.client_currency, this.build_currency, currencySet[this.client_currency].symbol);
         const client_currency_logo = currencySet[this.client_currency].symbol;
         if(v && v !== "NaN"){

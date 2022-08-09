@@ -58,7 +58,7 @@
         <blockquote>
             <pre>
                 <code>
-                    <script src="https://codad5.github.io/currencynet/main/production2.js"></script>
+                    <script src="https://codad5.github.io/currencynet/main/production.js"></script>
                 </code>
             </pre>
         </blockquote>
@@ -124,7 +124,7 @@
         <blockquote>
             <pre>
                 <code>
-                    <select id="currency-option" onchange="changeCurrency">
+                    <select id="bcurrency-option" onchange="changeCurrency">
                         <option name="USD" id="">USD</option>
                         <option name="NGN" id="">NGN</option>
                         <option name="EUR" id="">EUR</option>
@@ -160,7 +160,7 @@
             </div>
             <script>
                 //add event listner for the select tag 
-                document.getElementById('currency-option').addEventListener('change', async (e) => {
+                document.querySelector('#currency-option').addEventListener('change', async (e) => {
                     console.log(e.target.value);
                     await currencyChange.reWrite(e.target.value);
                 });
