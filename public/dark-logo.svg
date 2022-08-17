@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="836" height="173" viewBox="0 0 836 173">
+  <g id="Group_35" data-name="Group 35" transform="translate(-986 -334)">
+    <text id="currencyNet" transform="translate(991 334)" fill="#000a2a" font-size="142" font-family="Montserrat" font-weight="600" letter-spacing="-0.038em"><tspan x="0" y="137">currency</tspan><tspan y="137" font-size="109" font-weight="700">N</tspan><tspan y="137">et</tspan></text>
+    <g id="Rectangle_1" data-name="Rectangle 1" transform="translate(1595 416)" fill="#000a2a" stroke="#000a2a" stroke-width="1">
+      <rect width="86" height="10" stroke="none"/>
+      <rect x="0.5" y="0.5" width="85" height="9" fill="none"/>
+    </g>
+    <g id="Rectangle_6" data-name="Rectangle 6" transform="translate(1595 437)" fill="#000a2a" stroke="#000a2a" stroke-width="1">
+      <rect width="86" height="10" stroke="none"/>
+      <rect x="0.5" y="0.5" width="85" height="9" fill="none"/>
+    </g>
+    <g id="Rectangle_3" data-name="Rectangle 3" transform="translate(986 416)" fill="#000a2a" stroke="#000a2a" stroke-width="1">
+      <rect width="46" height="10" stroke="none"/>
+      <rect x="0.5" y="0.5" width="45" height="9" fill="none"/>
+    </g>
+    <g id="Rectangle_4" data-name="Rectangle 4" transform="translate(986 433)" fill="#000a2a" stroke="#000a2a" stroke-width="1">
+      <rect width="46" height="10" stroke="none"/>
+      <rect x="0.5" y="0.5" width="45" height="9" fill="none"/>
+    </g>
+    <rect id="Rectangle_7" data-name="Rectangle 7" width="603" height="10" transform="translate(1038 363)" fill="#0090ff"/>
+  </g>
+</svg>
