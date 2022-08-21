@@ -492,7 +492,7 @@ class currrencyNet{
             //loop through all country codes and rewrite the elements
             countryCodes.forEach(async (code) => {
                 const rate = await this.getRateFrom(code);
-                const elements = document.querySelectorAll(`.currencynet-init-${code}`);
+                const elements = document.querySelectorAll(`.currencynet-init-${code.toLowerCase()}`);
                 elements.forEach(element => {
                     this.reWriteElement(element, rate);
                 } );
