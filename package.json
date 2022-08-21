@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/codad5/currencynet/issues"
   },
-  "homepage": "https://github.com/codad5/currencynet#readme"
+  "homepage": "https://github.com/codad5/currencynet#readme",
+  "devDependencies": {
+    "jest": "^28.1.3"
+  }
 }

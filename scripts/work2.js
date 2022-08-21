@@ -176,6 +176,10 @@ for (const key in currencyList) {
         let tableRow1 = document.createElement("td");
         let tableRow2 = document.createElement("td");
         let tableRow3 = document.createElement("td");
+        // adding tailwind classes to each row 
+        tableRow1.className += "border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-neutral-300 dark:text-slate-400"
+        tableRow2.className += "border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-neutral-300 dark:text-slate-400"
+        tableRow3.className += "border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-neutral-300 dark:text-slate-400"
         let node = document.createTextNode(`${currencyList[key].name}`);
         let node1 = document.createTextNode(`${key}`);
         let node2 = document.createTextNode(`currencynet-init-${key.toLowerCase()}`);
