@@ -15,6 +15,9 @@
     </script>
    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+   <script>
+       hljs.highlightAll();
+   </script>
     <script deffer src="main/production.js"></script>
     <script>
         window.addEventListener("load", async () => {
@@ -28,15 +31,19 @@
     <script src="scripts/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="relative  bg-dark text-slate-50 dark:bg-slate-800 rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
-    <header class="bg-dark w-full  text-center sticky top-0 p-8">
+<body
+    class="w-screen relative  bg-dark text-slate-50 dark:bg-slate-800 rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
+    <header class="bg-dark w-screen  text-center sticky top-0 p-8">
         <h1 class="text-2xl font-bold ">CurrencyNet</h1>
     </header>
+    <main>
+        <pre><code class="language-html">...</code></pre>
+    </main>
 
 
-<div class="table-con" >
+<div class="table-con w-full" >
 
-    <table class="table-fixed">
+    <table class="table-fixed w-full">
 
         <thead>
             <tr>
