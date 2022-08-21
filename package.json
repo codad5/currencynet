@@ -1,0 +1,23 @@
+{
+  "name": "currencynet",
+  "version": "1.0.0",
+  "description": "This is a light weight currency converter library",
+  "main": "main/production.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codad5/currencynet.git"
+  },
+  "keywords": [
+    "library",
+    "currency"
+  ],
+  "author": "codad5",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codad5/currencynet/issues"
+  },
+  "homepage": "https://github.com/codad5/currencynet#readme"
+}

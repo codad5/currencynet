@@ -490,12 +490,15 @@ class currrencyNet{
                 this.reWriteElement(element, this.default_rate);
             } );
             //loop through all country codes and rewrite the elements
-            countryCodes.forEach(async (code) => {
-                const rate = await this.getRateFrom(code);
-                const elements = document.querySelectorAll(`.currencynet-init-${code.toLowerCase()}`);
-                elements.forEach(element => {
-                    this.reWriteElement(element, rate);
-                } );
+            countryCodes.forEach(code => {
+                const element = document.querySelectorAll(`.currencynet-init-${code.toLowerCase()}`);
+                if (element) {
+                    element.forEach(el => {
+                        this.getRateFrom(code).then(rate => {
+                            this.reWriteElement(el, rate);
+                        });
+                    });
+                }
             });
 
         });
