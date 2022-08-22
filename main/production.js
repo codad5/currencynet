@@ -467,11 +467,11 @@ class currrencyNet{
     }
     reWriteElement(element, rate){
         let v = element.dataset.currencynetValue || element.innerHTML;
-        v = this.float_precision ? parseFloat(v).toFixed(2) : parseInt(v);
-        console.log(v, this.client_currency, this.build_currency, currencySet[this.client_currency].symbol);
+        v = this.float_precision ? parseFloat(v).toFixed(2) : parseInt(Math.round(v));
         const client_currency_logo = currencySet[this.client_currency].symbol;
+        let value = this.float_precision ? parseFloat(v * rate).toFixed(2) : parseInt(Math.round(v * rate));
         if(v && v !== "NaN"){
-            element.innerHTML = `${client_currency_logo} ${v * rate}`;
+            element.innerHTML = `${client_currency_logo} ${value}`;
         }
         else{
             console.log(`${v} is not a number in Element with classname ${element.className}`);
@@ -506,6 +506,20 @@ class currrencyNet{
         
     }
     async reWrite(desired_currency = false){
+        this.default_rate = 1
+        this.default_element.forEach(element => {
+            this.reWriteElement(element, this.default_rate);
+        });
+        countryCodes.forEach(code => {
+            const element = document.querySelectorAll(`.currencynet-init-${code.toLowerCase()}`);
+            if(element){
+                element.forEach(el => {
+                    this.getRateFrom(code).then(rate => {
+                        this.reWriteElement(el, rate);
+                    });
+                });
+            }
+        });
         const client_info = await this.fetchUserLoaction();
         if (desired_currency){
             this.client_currency = desired_currency;
