@@ -514,9 +514,9 @@ class currrencyNet{
             const element = document.querySelectorAll(`.currencynet-init-${code.toLowerCase()}`);
             if(element){
                 element.forEach(el => {
-                    this.getRateFrom(code).then(rate => {
-                        this.reWriteElement(el, rate);
-                    });
+                    // this.getRateFrom(code).then(rate => {
+                        this.reWriteElement(el, this.default_rate);
+                    // });
                 });
             }
         });
