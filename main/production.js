@@ -483,7 +483,7 @@ class currrencyNet{
         // change client currency depending on select input
         const select = document.querySelector(".currencynet-select");
         // add eventListener to select input
-        select.addEventListener("change", async () => {
+        select?.addEventListener("change", async () => {
             this.client_currency = select.value;
             this.default_rate = await this.getRate();
             this.default_element.forEach(element => {
