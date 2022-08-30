@@ -4,7 +4,7 @@
   "description": "This is a light weight currency converter library",
   "main": "main/production.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test/index.js && jest"
   },
   "repository": {
     "type": "git",

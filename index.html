@@ -36,14 +36,13 @@
        hljs.initHighlightingOnLoad();
    </script>
     <script deffer src="main/production.js"></script>
-    <script>
-        window.addEventListener("load", async () => {
-        const currencyChange = new currrencyNet('XPF', false);
-        await currencyChange.reWrite();
-
-
-        });
-    </script>
+<script>
+    window.addEventListener("load", async () => {
+    // CFP Franc `XPF` this is our application build currency
+    const currencyChange = new currrencyNet('XPF', false);
+    await currencyChange.reWrite();
+    });
+</script>
     <script src="https://kit.fontawesome.com/598c5133cc.js" crossorigin="anonymous"></script>
     <script src="scripts/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -124,7 +123,8 @@
                         <li>The second <code>span</code> element help you use other currency ( for that case Indian Rupee <code>inr</code>) to convert to your build currency.</li>
                         <li>
                             <code>Note</code>: for the second <code>span</code> element you will need to attach <a
-                                class="underline text-emerald-400" href="https://en.wikipedia.org/wiki/ISO_4217">ISO
+                                class="underline text-emerald-400"
+                                href="https://en.wikipedia.org/wiki/ISO_4217#Active_codes">ISO
                                 4217 CODE</a> in `<code>lower case</code>` to `<code>currencynet-init</code>` class 
                         </li>
                         <li>

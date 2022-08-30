@@ -458,6 +458,9 @@ class currrencyNet{
         return data;
         
     }
+    sum(a, b){
+        return a + b
+    }
     async getRateFrom(from_currency){
         // fetch data from https://localhost then return the data
         const response = await fetch(`https://lovely-puce-shoulder-pads.cyclic.app/${from_currency}/${this.client_currency}`);
@@ -542,3 +545,9 @@ class currrencyNet{
 
 }
 
+
+const sum = (a, b, ...c) => {
+    return a + b + c.reduceRight((total, value, index, array) => {
+        return total + value;
+    });
+}

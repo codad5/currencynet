@@ -7,7 +7,7 @@
 
 
 ## Documentation : Usage
-To begin using this in your web application you have to signup  at our [website](https://currencynet.sanctablog.com/)
+
 
 ### Import Currencynet
 
