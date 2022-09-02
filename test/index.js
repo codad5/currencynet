@@ -11,7 +11,7 @@ fs.readFile('./main/production.js', 'utf-8', (err, data) => {
     filedata += '\nexports.sum = sum'
 
     fs.writeFile('./test/production.js', filedata, (err) => {
-        console.log('test file produced', err)
+        console.log('test file produced with error = ', err)
     })
 })
 
