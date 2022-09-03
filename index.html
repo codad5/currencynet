@@ -68,12 +68,24 @@
         <section class="inline-block w-full text-center">
             <h3 class="text-lg font-bold pb-2 text-left">import / Install CurrencyNet</h3>
             <pre
-                class="w-full text-left"><code class="language-html"> <script src="https://codad5.github.io/currencynet/main/v1.js"></script> </code></pre>
+                class="w-full text-left"><code class="language-html"><script src="https://codad5.github.io/currencynet/main/v1.js"></script> </code></pre>
             <pre class="w-full text-left">
-                <code class="language-bash"> $ npm install currencynet </code>
+                <code class="language-bash">$ npm install currencynet</code>
             </pre>
         </section>
-        <section class="inline-block w-full text-center">
+        <section class="inline-block w-full text-center pb-4">
+            <h3 class="text-lg font-bold pb-2 text-left">CurrencyNet tutorial</h3>
+            <ul class="text-left leading-6 list-disc p-5 pt-2 pb-2">
+                <li>
+                    <a href="#cdnlearn" class="underline font-black decoration-dotted">I want to learn how to use the
+                        cdn package.</a>
+                </li>
+                <li>
+                    <a href="#reactlearn" class="underline font-black decoration-dotted">I want to learn how to use the react package.</a>
+                </li>
+        </section>
+        <section class="inline-block w-full text-center" id="cdnlearn">
+            <h2 class="text-lg font-bold pb-2 text-left">USING CDN LINK</h2>
             <h3 class="text-lg font-bold pb-2 text-left">Initialize Currencynet</h3>
             <pre
                 class="w-full text-left"><code class="language-html"> 
@@ -203,6 +215,97 @@
                     </ul>
             
         </section>
+        <section class="inline-block w-full text-center" id="reactlearn">
+            <h2 class="text-lg font-bold pb-2 text-left">USING React Package</h2>
+            <h3 class="text-lg font-bold pb-2 text-left">Import Currencynet</h3>
+            <pre class="w-full text-left">
+                <code class="language-js"> import { CurrencyNet } from 'currencynet'</code></pre>
+            <ul class="text-left leading-8 list-disc p-5">
+                <li>
+                    The <code>CurrrencyNet</code> data been extracted from <code>'currencynet'</code> return a jsx element.
+                </li>
+                
+            </ul>
+
+        </section>
+        <section class="inline-block w-full text-center" >
+            <h3 class="text-lg font-bold pb-2 text-left">Using Currencynet</h3>
+            <img src="asset/img/sampleone.png" class="w-full text-left">
+                
+            <ul class="text-left leading-8 list-disc p-5">
+                <li>
+                    The <code>CurrrencyNet</code> jsx element need two props <code>buildCurrency</code> && <code>value</code>
+                </li>
+                <li>
+                    The <code>buildCurrency</code> props is the <a class="underline text-emerald-400"
+                        href="https://en.wikipedia.org/wiki/ISO_4217#Active_codes">ISO
+                        4217 CODE</a> of your build currency in `<code>upper case</code>`.
+                </li>
+                <li>
+                    The <code>value</code> props is the value in your build currency
+                </li>
+                <li>
+                    The <code>isfloat</code> prop is an optional param that determine if the output will be a float on <code>true</code> , otherwise. It`s default is <code>true</code>
+                </li>
+
+                
+            </ul>
+
+        </section>
+        <section class="inline-block w-full text-center" >
+            <h3 class="text-lg font-bold pb-2 text-left">Best pratice Using the React package</h3>
+            <p class="text-left p-2 leading-8">
+                You will see that the build currency has to be declared on every declaration of the <code> CurrencyNet </code> jsx element,  this is likely to cause a bug on your application or rather be so exhausting.
+                <br/>
+                <br/>
+                So to solve this it is best to create a component for a particular currency like the example below, either by using the <code>children</code> property of the deconstructed props param or having your own props property
+            </p>
+            <img src="asset/img/sampletwo.png" class="w-full text-left">
+                
+            <ul class="text-left leading-8 list-disc p-5">
+                <li>
+                    Although it is not advicable to use the <code>children</code> method as passing in string ( by accident ) can or might cause fatal and diffcult to trace bug
+                </li>
+                
+            </ul>
+
+        </section>
+        <section class="inline-block w-full text-center" >
+            <h3 class="text-lg font-bold pb-2 text-left">Using Github</h3>
+                You can always fall back to the <code>currencynet</code> github`s repos for more code sample or issues
+            <div class="text-lg font-bold pl-5 pr-5 pt-2 pb-2 text-left">For the CDN based libray</div>
+            <ul class="text-left leading-8 list-disc p-5 pt-2 pb-2 ">
+                <li>
+                    Repo: <a href="https://github.com/codad5/currencynet" class="underline text-emerald-400">Check here</a>
+                   
+                </li>
+                <li>
+                    Issues: <a href="https://github.com/codad5/react-currencynet/issues"
+                        class="underline text-emerald-400">Check here</a>
+
+                </li>
+                
+            </ul>
+            <div class="text-lg font-bold pl-5 pr-5 pt-2 pb-2 text-left">For the React libray</div>
+            <ul class="text-left leading-8 list-disc p-5 pt-2 pb-2 ">
+                <li>
+                    Repo: <a href="https://github.com/codad5/react-currencynet" class="underline text-emerald-400">Check here</a>
+                   
+                </li>
+                <li>
+                    Code Playground: <a href="https://playcode.io/currencynet/" class="underline text-emerald-400">Check
+                        here</a>
+                   
+                </li>
+                <li>
+                    Issues: <a href="https://github.com/codad5/react-currencynet/issues" class="underline text-emerald-400">Check here</a>
+                   
+                </li>
+                
+            </ul>
+
+        </section>
+        
 
 
 
